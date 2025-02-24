@@ -12,7 +12,6 @@
     <main class="content-grid">
         <h1>Home</h1>
     </main>
-    <Script src="../assets/js/main.js"></Script>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>
 </body>
