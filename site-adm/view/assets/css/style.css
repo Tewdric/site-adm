@@ -1,0 +1,27 @@
+@import url(reset.css);
+@import url(componentes.css);
+
+:root {
+    --page-background-color: #ececec;
+    --navbar-background-color: #ffffff;
+    --sidebar-background-color: #7bac3b;
+}
+
+body {
+    background-color: var(--page-background-color);
+}
+
+/* nesse arquivo: estilo pag. home */
+
+/* 
+    reset.css
+    artigo.css
+        css dentro da tag main
+    usuario.css
+        css dentro da tag main
+    categoria.css
+        css dentro da tag main
+
+    componentes.css
+        CSS p/ barra navegação, lateral e rodape
+*/
