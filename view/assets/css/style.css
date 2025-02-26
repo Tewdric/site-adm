@@ -5,7 +5,7 @@
 @import url(components/sidebar.css);
 
 :root {
-    --page-background-color: #ececec;
+    --page-background-color: #e4e4e4;
     --navbar-background-color: #ffffff;
     --sidebar-background-color: #7bac3b;
     --sidebar-active-background-color: #5e8c2a;
@@ -23,6 +23,22 @@ body {
     grid-template-rows: 68px 1fr 22px;
 }
 
+table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 0 10px grey;
+    tbody{
+        
+
+         td{
+           border-top: 1px solid #a3a3a3;
+            padding: 5px;
+            text-align: center;
+        }
+    }
+}
 @media (max-width: 600px) {
     .content {
         grid-template-columns: 1fr;

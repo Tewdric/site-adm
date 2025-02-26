@@ -3,7 +3,7 @@
     grid-column: 1;
     grid-row: 1 / 4;
     background-color: var(--sidebar-background-color);
-
+    box-shadow: 5px 0px 5px grey;
     .menu-mobile {
         display: none;
     }

@@ -1,6 +1,8 @@
 <?php 
 
 require_once './../../config/env.php'; 
+require_once './../../model/UsuarioModel.php';
+
 
 ?>
 
@@ -11,6 +13,27 @@ require_once './../../config/env.php';
 
     <main class="content-grid">
         <h1>Usuários</h1>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th colspan="2">Acoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach (UsuarioModel::$usuarios as $usuario): ?>
+                    <tr>
+                        <td><?= $usuario['nome'] ?></td>
+                        <td><?= $usuario['email'] ?></td>
+
+                            <td><a href="#">Editar</a></td>
+                            <td><a href="#">Excluir</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>

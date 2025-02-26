@@ -3,13 +3,14 @@
     grid-column: 2;
     grid-row: 1;
     background-color: var(--navbar-background-color);
-
+    z-index: 1;
     nav {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         height: 100%;
-
+        box-shadow: 0 5px 5px grey;
+       
         img {
             height: 48px;
         }
