@@ -5,7 +5,7 @@ require_once './../../config/env.php';
 ?>
 
 <?php require_once __DIR__ . '\..\components\head.php'; ?>
-<body class="body">
+<body class="content">
     <?php require_once __DIR__ . '\..\components\navbar.php'; ?>
     <?php require_once __DIR__ . '\..\components\sidebar.php'; ?>
 

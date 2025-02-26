@@ -2,7 +2,7 @@
 //require_once __DIR__ . '\..\components\head.php';
 require_once '../components/head.php';
 ?>
-<body class="body">
+<body class="content">
     <?php require_once '../components/navbar.php'; ?>
     <?php require_once '../components/sidebar.php'; ?>
 
@@ -11,5 +11,7 @@ require_once '../components/head.php';
     </main>
 
     <?php require_once '../components/footer.php'; ?>
+
+    <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
 </body>
 </html>

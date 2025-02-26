@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '\..\components\head.php'; ?>
-<body class="body">
+<body class="content">
     <!-- arquivo responsável pela tela Home -->
 
     <!-- 
@@ -14,5 +14,7 @@
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>
+
+    <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
 </body>
 </html>
