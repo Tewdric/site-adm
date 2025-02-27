@@ -3,6 +3,10 @@
 require_once './../../config/env.php'; 
 require_once './../../model/UsuarioModel.php';
 
+    // $usario_dados = new UsuarioModel();
+
+
+    // var_dump($usario_dados->usuarios);
 
 ?>
 
