@@ -3,7 +3,8 @@
     grid-column: 1;
     grid-row: 1 / 4;
     background-color: var(--sidebar-background-color);
-    box-shadow: 5px 0px 5px grey;
+
+   
     .menu-mobile {
         display: none;
     }
@@ -47,6 +48,9 @@
         top: 0;
         visibility: hidden;
 
+        z-index: 1;
+        width: 0;
+        transition:  0.5s linear;
         .menu-mobile {
             visibility: visible;
             display: block;
@@ -62,6 +66,9 @@
 
         &.open {
             visibility: visible;
+            width: 200px;
+
+            transition:  0.5s linear;
         }
 
         .nav {

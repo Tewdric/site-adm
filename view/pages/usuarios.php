@@ -32,8 +32,21 @@ require_once './../../model/UsuarioModel.php';
                         <td><?= $usuario['nome'] ?></td>
                         <td><?= $usuario['email'] ?></td>
 
-                            <td><a href="#" class="editar" onclick="editar('<?= $usuario['nome'] ?>','<?= $usuario['email'] ?>')" value="usuario">Editar</a></td>
-                            <td><a href="#">Excluir</a></td>
+                            <td>
+                                <a href="#" class="editar" onclick="editar('<?= $usuario['nome'] ?>','<?= $usuario['email'] ?>')" value="usuario">
+                                    <span class="material-symbols-outlined">
+                                        edit_square
+                                    </span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <span class="material-symbols-outlined" tooltip="Excluir">
+                                        delete
+                                    </span>
+                                </a>
+                            </td>
+                            
                     </tr>
                 <?php endforeach; ?>
             </tbody>

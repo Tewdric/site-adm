@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require_once './../../config/env.php'; 
+require_once './../../config/env.php';
 require_once './../../model/CategoriasModel.php';
 
 
@@ -15,7 +15,7 @@ require_once './../../model/CategoriasModel.php';
 
     <main class="content-text">
         <h1>Categoria</h1>
-        
+
         <table border="1">
             <thead>
                 <tr>
@@ -30,22 +30,28 @@ require_once './../../model/CategoriasModel.php';
                         <td><?= $categorias['id'] ?></td>
                         <td><?= $categorias['categoria'] ?></td>
                         <td>
-                        <a href="#" class="editar" value="categoria" onclick="editar('<?= $categorias['id'] ?>','<?= $categorias['categoria'] ?>')">Editar</a>
+                            <a href="#" class="editar" value="categoria" onclick="editar('<?= $categorias['id'] ?>','<?= $categorias['categoria'] ?>')">
+                                <span class="material-symbols-outlined">
+                                    edit_square
+                                </span>
+                            </a>
                         </td>
                         <td>
-                            <a href="">excluir</a>
+                            <a href="">
+                                <span class="material-symbols-outlined" tooltip="Excluir">
+                                    delete
+                                </span>
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
 
             </tbody>
-
-
-  
+        </table>
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>
-
     <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
+        
 </body>
 </html>
