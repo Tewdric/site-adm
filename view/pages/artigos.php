@@ -55,7 +55,7 @@ require_once '../components/head.php';
                         <td><?= $artigos['id_categoria'] ?></td>
                         <td><?= $artigos['id_autor'] ?></td>
                         
-                        <td><a href="#">Editar</a></td>
+                        <td><a href="#" class="editar" value="artigo" onclick="editar('<?= $artigos['texto']?>', '<?= $artigos['id_categoria']?>', '<?= $artigos['id_autor']?>')">Editar</a></td>
                         <td><a href="#">Excluir</a></td>
                     </tr>
                 <?php endforeach; ?>

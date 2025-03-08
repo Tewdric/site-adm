@@ -32,12 +32,14 @@ require_once './../../model/UsuarioModel.php';
                         <td><?= $usuario['nome'] ?></td>
                         <td><?= $usuario['email'] ?></td>
 
-                            <td><a href="#">Editar</a></td>
+                            <td><a href="#" class="editar" onclick="editar('<?= $usuario['nome'] ?>','<?= $usuario['email'] ?>')" value="usuario">Editar</a></td>
                             <td><a href="#">Excluir</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>

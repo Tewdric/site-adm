@@ -30,7 +30,7 @@ require_once './../../model/CategoriasModel.php';
                         <td><?= $categorias['id'] ?></td>
                         <td><?= $categorias['categoria'] ?></td>
                         <td>
-                            <a href="">editar</a>
+                        <a href="#" class="editar" value="categoria" onclick="editar('<?= $categorias['id'] ?>','<?= $categorias['categoria'] ?>')">Editar</a>
                         </td>
                         <td>
                             <a href="">excluir</a>
@@ -39,6 +39,9 @@ require_once './../../model/CategoriasModel.php';
                 <?php endforeach; ?>
 
             </tbody>
+
+
+  
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>
