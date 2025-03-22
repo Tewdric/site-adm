@@ -1,11 +1,13 @@
 <?php
 
 require_once './../../config/env.php';
-require_once './../../model/ArtigosModel.php';
+require_once "./../../controller/usuarioController.php";
+require_once "./../../controller/artigoController.php";
 
-require_once './../../model/UsuarioModel.php';
-require_once './../../model/CategoriasModel.php';
+$artigoController = new ArtigoController();
+$artigo = $artigoController->listarArtigos();
 
+var_dump($artigo);
 
 ?>
 
@@ -33,30 +35,15 @@ require_once '../components/head.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach (ArtigosModel::$artigo as $artigos):
-                        $nome_autor = $artigos['id_autor'];
-                        $nome_categoria = $artigos['id_categoria'];
-
-                        foreach (UsuarioModel::$usuarios as $usuario) {
-                            if ($usuario['id'] == $nome_autor) {
-                                $artigos['id_autor'] = $usuario['nome'];
-                            }
-                        }
-
-                        foreach (CategoriasModel::$categoria as $categorias) {
-                            if ($categorias['id'] == $nome_categoria) {
-                                $artigos['id_categoria'] = $categorias['categoria'];
-                            }
-                        }
-                    ?>
+                    <?php foreach ($artigo as $item):?>
 
                         <tr>
-                            <td><?= $artigos['id'] ?></td>
-                            <td><?= $artigos['texto'] ?></td>
-                            <td><?= $artigos['id_categoria'] ?></td>
-                            <td><?= $artigos['id_autor'] ?></td>
+                            <td><?= $item['id'] ?></td>
+                            <td><?= $item['texto'] ?></td>
+                            <td><?= $item['categoria'] ?></td>
+                            <td><?= $item['nome'] ?></td>
 
-                            <td><a href="#" class="editar" value="artigo" onclick="editar('<?= $artigos['texto'] ?>', '<?= $artigos['id_categoria'] ?>', '<?= $artigos['id_autor'] ?>')">
+                            <td><a href="#" class="editar" value="artigo" onclick="editar('<?= $item['texto'] ?>', '<?= $item['categoria'] ?>', '<?= $item['nome'] ?>')">
                                     <span class="material-symbols-outlined">
                                         edit_square
                                     </span>

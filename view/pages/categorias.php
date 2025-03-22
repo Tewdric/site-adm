@@ -1,7 +1,10 @@
 <?php
 
 require_once './../../config/env.php';
-require_once './../../model/CategoriasModel.php';
+require_once "./../../controller/categoriaController.php";
+
+$categoriaController = new CategorialController();
+$categoria = $categoriaController->listarCategorias();
 
 
 ?>
@@ -25,12 +28,12 @@ require_once './../../model/CategoriasModel.php';
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (CategoriasModel::$categoria as $categorias): ?>
+                <?php foreach ($categoria as $item): ?>
                     <tr>
-                        <td><?= $categorias['id'] ?></td>
-                        <td><?= $categorias['categoria'] ?></td>
+                        <td><?= $item['id'] ?></td>
+                        <td><?= $item['categoria'] ?></td>
                         <td>
-                            <a href="#" class="editar" value="categoria" onclick="editar('<?= $categorias['id'] ?>','<?= $categorias['categoria'] ?>')">
+                            <a href="#" class="editar" value="categoria" onclick="editar('<?= $item['id'] ?>','<?= $item['categoria'] ?>')">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>

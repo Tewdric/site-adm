@@ -1,12 +1,11 @@
 <?php 
 
 require_once './../../config/env.php'; 
-require_once './../../model/UsuarioModel.php';
+require_once "./../../controller/usuarioController.php";
 
-    // $usario_dados = new UsuarioModel();
+$usuarioController = new UsuarioController();
+$usuario = $usuarioController->listarUsuarios();
 
-
-    // var_dump($usario_dados->usuarios);
 
 ?>
 
@@ -27,13 +26,13 @@ require_once './../../model/UsuarioModel.php';
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (UsuarioModel::$usuarios as $usuario): ?>
+                <?php foreach ($usuario as $item): ?>
                     <tr>
-                        <td><?= $usuario['nome'] ?></td>
-                        <td><?= $usuario['email'] ?></td>
+                        <td><?= $item['nome'] ?></td>
+                        <td><?= $item['email'] ?></td>
 
                             <td>
-                                <a href="#" class="editar" onclick="editar('<?= $usuario['nome'] ?>','<?= $usuario['email'] ?>')" value="usuario">
+                                <a href="#" class="editar" onclick="editar('<?= $item['nome'] ?>','<?= $item['email'] ?>')" value="usuario">
                                     <span class="material-symbols-outlined">
                                         edit_square
                                     </span>
