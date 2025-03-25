@@ -51,6 +51,10 @@ $usuario = $usuarioController->listarUsuarios();
             </tbody>
         </table>
 
+        <dialog open>
+
+        </dialog>
+
 
     </main>
 
