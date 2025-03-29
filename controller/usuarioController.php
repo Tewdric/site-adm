@@ -29,13 +29,13 @@ class UsuarioController{
        }
     }
 
-    public function cadastrarUsuario($name, $pass){
+    public function cadastrarUsuario($name, $email){
         try{
-         $sql = "INSERT INTO usuarios (nome, senha) VALUES (:name, :pass)";
+         $sql = "INSERT INTO usuarios (nome, email) VALUES (:name, :email)";
 
          $db = $this->conn->prepare($sql);
          $db->bindParam(':name', $name);
-         $db->bindParam(':pass', $pass);
+         $db->bindParam(':email', $email);
 
          if($db->execute()){
             return true;
@@ -72,10 +72,10 @@ class UsuarioController{
 
     public function atualizarUsuario($id, $name, $email){
         try{
-            $sql = "UPDATE usuarios SET nome = :name, senha = :email WHERE id = :id";
+            $sql = "UPDATE usuarios SET nome = :name, email = :email WHERE id = :id";
             $db = $this->conn->prepare($sql);
             $db->bindParam(':name', $name);
-            $db->bindParam(':pass', $pass);
+            $db->bindParam(':pass', $email);
             $db->bindParam(':id', $id);
     
             if($db->execute()){

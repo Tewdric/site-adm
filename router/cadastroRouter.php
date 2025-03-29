@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $cadastrarController->cadastrarUsuario($_POST['name'],  $_POST['pass']);
+            $resultado = $cadastrarController->cadastrarUsuario($_POST['name'],  $_POST['email']);
 
             if($resultado){
                 header('Location: ../view/home/index.php');
