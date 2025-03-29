@@ -39,11 +39,10 @@ $usuario = $usuarioController->listarUsuarios();
                                 </a>
                             </td>
                             <td>
-                                <a href="">
-                                    <span class="material-symbols-outlined" tooltip="Excluir">
-                                        delete
-                                    </span>
-                                </a>
+                                <form action="../../router/cadastroRouter.php?acao=delete" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $item["id"]?>">
+                                    <button>Excluir</button>
+                                </form>
                             </td>
                             
                     </tr>
@@ -51,8 +50,15 @@ $usuario = $usuarioController->listarUsuarios();
             </tbody>
         </table>
 
-        <dialog open>
+        <dialog open="">
+            <form action="../../router/cadastroRouter.php?acao=update">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" value="<?php echo $item['nome']?>">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" value="<?php echo $item['email']?>">
 
+                    <button>Salvar</button>
+            </form>
         </dialog>
 
 
