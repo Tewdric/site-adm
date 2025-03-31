@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../controller/usuarioController.php';
-$cadastrarController = new UsuarioController();
+require_once __DIR__.'/../controller/artigoController.php';
+$artigoController = new ArtigoController();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $cadastrarController->cadastrarUsuario($_POST['name'],  $_POST['email']);
+            $resultado = $artigoController->cadastrarUsuario($_POST['name'],  $_POST['email']);
 
             if($resultado){
                 header('Location: ../view/home/index.php');

@@ -3,7 +3,7 @@
 require_once './../../config/env.php';
 require_once "./../../controller/categoriaController.php";
 
-$categoriaController = new CategorialController();
+$categoriaController = new CategoriaController();
 $categoria = $categoriaController->listarCategorias();
 
 
@@ -33,7 +33,7 @@ $categoria = $categoriaController->listarCategorias();
                         <td><?= $item['id'] ?></td>
                         <td><?= $item['categoria'] ?></td>
                         <td>
-                            <a href="#" class="editar" value="categoria" onclick="editar('<?= $item['id'] ?>','<?= $item['categoria'] ?>')">
+                            <a href="#" class="editar" value="categoria" onclick="editarCategoria('<?= $item['id'] ?>','<?= $item['categoria'] ?>')">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>

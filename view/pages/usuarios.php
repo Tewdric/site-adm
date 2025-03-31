@@ -28,11 +28,12 @@ $usuario = $usuarioController->listarUsuarios();
             <tbody>
                 <?php foreach ($usuario as $item): ?>
                     <tr>
+                        <td><?= $item['id'] ?></td>
                         <td><?= $item['nome'] ?></td>
                         <td><?= $item['email'] ?></td>
 
                             <td>
-                                <a href="#" class="editar" onclick="editar('<?= $item['nome'] ?>','<?= $item['email'] ?>')" value="usuario">
+                                <a href="#" class="editar" onclick="editarUsuario('<?= $item['id']?>','<?= $item['nome'] ?>','<?= $item['email'] ?>')" value="usuario">
                                     <span class="material-symbols-outlined">
                                         edit_square
                                     </span>
@@ -50,16 +51,7 @@ $usuario = $usuarioController->listarUsuarios();
             </tbody>
         </table>
 
-        <dialog open="">
-            <form action="../../router/cadastroRouter.php?acao=update">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="<?php echo $item['nome']?>">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" value="<?php echo $item['email']?>">
-
-                    <button>Salvar</button>
-            </form>
-        </dialog>
+        
 
 
     </main>

@@ -2,7 +2,7 @@
 <?php
 
 require_once __DIR__ . "/../config/db/db.php";
-class CategorialController{
+class CategoriaController{
     public $conn;
     public function __construct(){
         $banco = new Database();
@@ -29,7 +29,7 @@ class CategorialController{
        }
     }
 
-    public function cadastrarArtigo($categoria){
+    public function cadastrarCategorias($categoria){
         try{
          $sql = "INSERT INTO categorias (categoria) VALUES (:categoria)";
 
@@ -69,10 +69,11 @@ class CategorialController{
         }
     }
 
-    public function atualizarCategoria($categoria){
+    public function atualizarCategoria($id,$categoria){
         try{
-            $sql = "UPDATE categoria SET categoria = :categoria WHERE id = :id";
+            $sql = "UPDATE categorias SET categoria = :categoria WHERE id = :id";
             $db = $this->conn->prepare($sql);
+            $db->bindParam(':id', $id);
             $db->bindParam(':categoria', $categoria);
     
             if($db->execute()){

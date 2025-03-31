@@ -1,13 +1,11 @@
 <?php
 
 require_once './../../config/env.php';
-require_once "./../../controller/usuarioController.php";
+
 require_once "./../../controller/artigoController.php";
 
 $artigoController = new ArtigoController();
 $artigo = $artigoController->listarArtigos();
-
-var_dump($artigo);
 
 ?>
 
@@ -43,7 +41,7 @@ require_once '../components/head.php';
                             <td><?= $item['categoria'] ?></td>
                             <td><?= $item['nome'] ?></td>
 
-                            <td><a href="#" class="editar" value="artigo" onclick="editar('<?= $item['texto'] ?>', '<?= $item['categoria'] ?>', '<?= $item['nome'] ?>')">
+                            <td><a href="#" class="editar" value="artigo" onclick="editarArtigo('<?= $item['id'] ?>', '<?= $item['texto'] ?>', '<?= $item['categoria'] ?>','<?= $item['nome'] ?>')">
                                     <span class="material-symbols-outlined">
                                         edit_square
                                     </span>

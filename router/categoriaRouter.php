@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../controller/usuarioController.php';
-$cadastrarController = new UsuarioController();
+require_once __DIR__.'/../controller/categoriaController.php';
+$categoriaController = new CategoriaController();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $cadastrarController->cadastrarUsuario($_POST['name'],  $_POST['email']);
+            $resultado = $categoriaController->atualizarCategoria($_POST['id'],  $_POST['nome']);
 
             if($resultado){
                 header('Location: ../view/home/index.php');
@@ -20,16 +20,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'update':
 
             $id = $_POST['id'];
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
+            $categoria = $_POST['categoria'];
 
 
-            $resultado = $cadastrarController->atualizarUsuario($id, $nome, $email);
+            
+            $resultado = $categoriaController->atualizarCategoria($id, $categoria);
           
             if($resultado){
-                header('Location: ../view/pages/usuarios.php');
+                header('Location: ../view/pages/categorias.php');
             }else{
-                header('Location: ../view/cadastro/cadastro.php?id='.$id);
+                header('Location: ../view/pages/categorias.php?id='.$id);
             }
             break;
         case 'delete':

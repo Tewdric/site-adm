@@ -31,7 +31,7 @@ class ArtigoController{
        }
     }
 
-    public function cadastrarArtigo($texto, $id_categoria, $id_autor){
+    public function cadastrarArtigo($id, $texto, $categoria, $autor){
         try{
          $sql = "INSERT INTO artigos (texto, id_categoria, id_autor) VALUES (:texto, :id_categoria, id_autor)";
 
@@ -73,7 +73,7 @@ class ArtigoController{
         }
     }
 
-    public function atualizarCategoria($texto, $id_categoria, $id_autor){
+    public function atualizarArtigo($texto, $id_categoria, $id_autor){
         try{
             $sql = "UPDATE artigos SET texto = :texto, id_categoria = :id_categoria, id_autor=:id_autor WHERE id = :id";
             $db = $this->conn->prepare($sql);

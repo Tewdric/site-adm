@@ -74,9 +74,9 @@ class UsuarioController{
         try{
             $sql = "UPDATE usuarios SET nome = :name, email = :email WHERE id = :id";
             $db = $this->conn->prepare($sql);
-            $db->bindParam(':name', $name);
-            $db->bindParam(':pass', $email);
             $db->bindParam(':id', $id);
+            $db->bindParam(':name', $name);
+            $db->bindParam(':email', $email);
     
             if($db->execute()){
                 return true;
