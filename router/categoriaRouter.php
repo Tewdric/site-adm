@@ -9,12 +9,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $categoriaController->atualizarCategoria($_POST['id'],  $_POST['nome']);
-
+            $resultado = $categoriaController->cadastrarCategorias( $_POST['categoria']);
+            
             if($resultado){
-                header('Location: ../view/home/index.php');
+                header('Location: ../view/pages/categorias.php');
             }else{
-                header('Location: ../view/cadastro/cadastro.php');
+                header('Location: ../view/pages/categorias.php');
             }
             break;
         case 'update':
@@ -34,15 +34,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case 'delete':
                 $id = $_POST['id'];
-
-                $resultado = $cadastrarController->deletarUsuario($id);
+                var_dump($id);
+                $resultado = $categoriaController->deletarCategoria($id);
+                
 
                 if($resultado){
-                    // header('Location: ../view/pages/home.php');
-                    print("Excluiu");
+                    header('Location: ../view/pages/categorias.php');
                 }else{
-                    // header('Location: ../view/pages/home.php');
-                    print("Não foi");
+                    echo"não foi";
                 }
 
                 break;

@@ -9,37 +9,40 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $artigoController->cadastrarUsuario($_POST['name'],  $_POST['email']);
+            $resultado = $artigoController->cadastrarArtigo($_POST['texto'],  $_POST['categoria'],$autor['autor']);
 
-            if($resultado){
-                header('Location: ../view/home/index.php');
+            if($resultado){ 
+                header('Location: ../view/pages/artigos.php');
             }else{
-                header('Location: ../view/cadastro/cadastro.php');
+               echo'falhou';
             }
             break;
         case 'update':
 
             $id = $_POST['id'];
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
+            $texto = $_POST['texto'];
+            $categoria = $_POST['categoria'];
+            $autor = $_POST['autor'];
 
+            var_dump($id,$texto,$categoria,$autor);
 
-            $resultado = $cadastrarController->atualizarUsuario($id, $nome, $email);
-          
+            $resultado = $artigoController->atualizarArtigo($id, $texto, $categoria, $autor);
+            var_dump($resultado);
+            
             if($resultado){
-                header('Location: ../view/pages/usuarios.php');
+                header('Location: ../view/pages/artigos.php');
             }else{
-                header('Location: ../view/cadastro/cadastro.php?id='.$id);
+                header('Location: ../view/pages/artigos.php?id='.$id);
             }
             break;
         case 'delete':
                 $id = $_POST['id'];
 
-                $resultado = $cadastrarController->deletarUsuario($id);
+                $resultado = $artigoController->deletarArtigo($id);
 
                 if($resultado){
-                    // header('Location: ../view/pages/home.php');
-                    print("Excluiu");
+                    header('Location: ../view/pages/artigos.php');
+                   
                 }else{
                     // header('Location: ../view/pages/home.php');
                     print("Não foi");

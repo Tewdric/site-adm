@@ -30,6 +30,7 @@ require_once '../components/head.php';
                         <th>Categoria</th>
                         <th>Autor</th>
                         <th colspan="2">Acoes</th>
+                        <th><button onclick="cadastrarArtigo()">Cadastrar Artigo</button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,11 +48,11 @@ require_once '../components/head.php';
                                     </span>
                                 </a></td>
                             <td>
-                                <a href="">
-                                    <span class="material-symbols-outlined" tooltip="Excluir">
-                                        delete
-                                    </span>
-                                </a>
+                            <form action="../../router/artigoRouter.php?acao=delete" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $item["id"]?>">
+                                <button>Excluir</button>
+                            </form>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

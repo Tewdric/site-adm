@@ -9,12 +9,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($_GET['acao']){
         case 'create':
             
-            $resultado = $cadastrarController->cadastrarUsuario($_POST['name'],  $_POST['email']);
+            $resultado = $cadastrarController->cadastrarUsuario($_POST['nome'],  $_POST['email']);
 
             if($resultado){
-                header('Location: ../view/home/index.php');
+                header('Location: ../view/pages/usuarios.php');
             }else{
-                header('Location: ../view/cadastro/cadastro.php');
+                echo("erro");
             }
             break;
         case 'update':
@@ -38,11 +38,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $resultado = $cadastrarController->deletarUsuario($id);
 
                 if($resultado){
-                    // header('Location: ../view/pages/home.php');
-                    print("Excluiu");
+                    header('Location: ../view/pages/usuarios.php');
+                   
                 }else{
-                    // header('Location: ../view/pages/home.php');
-                    print("Não foi");
+                    header('Location: ../view/pages/usuarios.php');
                 }
 
                 break;

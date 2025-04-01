@@ -31,14 +31,14 @@ class ArtigoController{
        }
     }
 
-    public function cadastrarArtigo($id, $texto, $categoria, $autor){
+    public function cadastrarArtigo($texto, $categoria, $autor){
         try{
-         $sql = "INSERT INTO artigos (texto, id_categoria, id_autor) VALUES (:texto, :id_categoria, id_autor)";
+         $sql = "INSERT INTO artigos (texto, id_categoria, id_autor) VALUES (:texto, :categoria, :autor)";
 
          $db = $this->conn->prepare($sql);
          $db->bindParam(':texto', $texto);
-         $db->bindParam(':id_categoria', $id_categoria);
-         $db->bindParam(':id_autor', $id_autor);
+         $db->bindParam(':categoria', $categoria);
+         $db->bindParam(':autor', $autor);
 
          if($db->execute()){
             return true;
@@ -73,13 +73,14 @@ class ArtigoController{
         }
     }
 
-    public function atualizarArtigo($texto, $id_categoria, $id_autor){
+    public function atualizarArtigo($id, $texto, $categoria, $autor){
         try{
-            $sql = "UPDATE artigos SET texto = :texto, id_categoria = :id_categoria, id_autor=:id_autor WHERE id = :id";
+            $sql = "UPDATE artigos SET texto = :texto, id_categoria = :categoria, id_autor=:autor WHERE id = :id";
             $db = $this->conn->prepare($sql);
+            $db->bindParam(':id', $id);
             $db->bindParam(':texto', $texto);
-            $db->bindParam(':id_categoria', $id_categoria);
-            $db->bindParam(':id_autor', $id_autor);
+            $db->bindParam(':categoria', $categoria);
+            $db->bindParam(':autor', $autor);
     
             if($db->execute()){
                 return true;
@@ -93,7 +94,7 @@ class ArtigoController{
         }
     }
 
-    public function deletarCategoria($id){
+    public function deletarArtigo($id){
 
        try{
             $_sql = 'DELETE FROM artigos WHERE id = :id';

@@ -25,6 +25,7 @@ $categoria = $categoriaController->listarCategorias();
                     <th>Id</th>
                     <th>Categoria</th>
                     <th colspan="2">Acoes</th>
+                    <th><button onclick="criarCategoria()">Cadastrar Categoria</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,11 +41,10 @@ $categoria = $categoriaController->listarCategorias();
                             </a>
                         </td>
                         <td>
-                            <a href="">
-                                <span class="material-symbols-outlined" tooltip="Excluir">
-                                    delete
-                                </span>
-                            </a>
+                            <form action="../../router/categoriaRouter.php?acao=delete" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $item["id"]?>">
+                                <button>Excluir</button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -12,7 +12,7 @@ $categorias = $categoriaController->listarCategorias();
 header('Content-Type: application/json');
 echo json_encode([
     "categorias" => $categorias,
-    "usuarios" => $usuarios
+    "autores" => $usuarios
 ]);
 
 ?>

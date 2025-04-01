@@ -91,7 +91,7 @@ class CategoriaController{
     public function deletarCategoria($id){
 
        try{
-            $_sql = 'DELETE FROM artigos WHERE id = :id';
+            $_sql = 'DELETE FROM categorias WHERE id = :id';
             $db = $this->conn->prepare($_sql);
             $db->bindParam(':id', $id);
             if($db->execute()){

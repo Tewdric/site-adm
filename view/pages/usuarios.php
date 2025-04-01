@@ -6,7 +6,6 @@ require_once "./../../controller/usuarioController.php";
 $usuarioController = new UsuarioController();
 $usuario = $usuarioController->listarUsuarios();
 
-
 ?>
 
 <?php require_once __DIR__ . '\..\components\head.php'; ?>
@@ -15,6 +14,7 @@ $usuario = $usuarioController->listarUsuarios();
     <?php require_once __DIR__ . '\..\components\sidebar.php'; ?>
 
     <main class="content-grid">
+
         <h1>Usuários</h1>
 
         <table border="1">
@@ -23,6 +23,7 @@ $usuario = $usuarioController->listarUsuarios();
                     <th>Nome</th>
                     <th>Email</th>
                     <th colspan="2">Acoes</th>
+                    <th><button onclick="criarUsuario()">Cadastrar Usuário</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,11 +54,12 @@ $usuario = $usuarioController->listarUsuarios();
 
         
 
-
+        
+        
     </main>
 
     <?php require_once __DIR__ . '\..\components\footer.php'; ?>
 
-    <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
+    <script src="<?=VARIAVEIS['DIR_JS'] ?>main.js"></script>
 </body>
 </html>
