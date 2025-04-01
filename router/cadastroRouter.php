@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 exit; // Certifique-se de que o código não continuará executando após o redirecionamento
             } else {
                 // Caso a exclusão falhe, armazenamos a mensagem de erro na sessão
-                $_SESSION['erro'] = 'Este produto está vinculado a um pedido e não pode ser excluído!';
+                $_SESSION['erro'] = 'Este usuário possui artigos cadastrados!';
                 
                 // Redireciona para a página de usuários
                 header('Location: ../view/pages/usuarios.php');
