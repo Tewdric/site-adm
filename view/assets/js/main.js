@@ -19,11 +19,11 @@ mobileMenu.addEventListener('click', () => {
 })
 
 
-const link_editar = document.querySelector('.editar')
+// const link_editar = document.querySelector('.editar')
 
-link_editar.addEventListener('click', () => {
+// link_editar.addEventListener('click', () => {
     
-})
+// })
 
 
 function criarUsuario(){
@@ -91,7 +91,7 @@ function editarUsuario(id, nome, email) {
             dialog.innerHTML = `<form method="POST" action="../../router/cadastroRouter.php?acao=update">
                                    
                                     <label for="id">ID:</label>
-                                    <input type="text" name="id" value="${id}">
+                                    <input type="text" name="id" value="${id}" disabled>
                                     <label for="nome">Nome:</label>
                                     <input type="text" name="nome" value="${nome}">
                                     <label for="email">Email:</label>
@@ -125,7 +125,7 @@ function editarCategoria(id, nome ) {
         case 'categoria':
             dialog.innerHTML = `<form method="POST" action="../../router/categoriaRouter.php?acao=update">
                                     <label for="id">Id:</label>
-                                    <input type="text" name="id" value="${id}">
+                                    <input type="text" name="id" value="${id}" disabled>
                                     <label for="categoria">Categoria:</label>
                                     <input type="text" name="categoria" value="${nome}">
                                     <button type="submit">Salvar</button>
@@ -175,7 +175,7 @@ async function editarArtigo(id, texto, categoriaId, autorId) {
             dialog.innerHTML = `
                 <form method="POST" action="../../router/artigoRouter.php?acao=update">
                     <label for="id">Id:</label>
-                    <input type="block" name="id" value="${id}" readonly>
+                    <input type="block" name="id" value="${id}" readonly disabled>
 
                     <label for="texto">Texto:</label>
                     
@@ -183,11 +183,14 @@ async function editarArtigo(id, texto, categoriaId, autorId) {
                     "${texto}"
                     </textarea>
 
-                    <label for="categoria">Categoria:</label>
-                    <select name="categoria">${categoriasOptions}</select>
+                    <div class="select">
+                        <label for="categoria">Categoria:</label>
+                        <select name="categoria">${categoriasOptions}</select>
 
-                    <label for="autor">Autor:</label>
-                    <select name="autor">${autoresOptions}</select>
+                        <label for="autor">Autor:</label>
+                        <select name="autor">${autoresOptions}</select>
+                    </div>
+                    <br>
 
                     <button type="submit">Salvar</button>
                 </form>

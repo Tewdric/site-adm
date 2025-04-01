@@ -9,6 +9,7 @@
     --navbar-background-color: #ffffff;
     --sidebar-background-color: #7bac3b;
     --sidebar-active-background-color: #5e8c2a;
+    --button-background-color: #7bac3b;
 
     --text-white: #ffffff;
 }
@@ -76,6 +77,29 @@ dialog{
         cursor: pointer;
     }
 }
+
+textarea{
+    width: 80%;
+    height: 20%;
+    overflow: auto;
+    margin-bottom: 1rem;
+}
+
+button{
+    background-color: var(--button-background-color);
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    color: var(--text-white);
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+button:hover{
+    background-color: #476b1f;
+}
+
 @media (max-width: 600px) {
     .content {
         grid-template-columns: 1fr;
