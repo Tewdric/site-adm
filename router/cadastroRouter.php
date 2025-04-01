@@ -33,18 +33,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             break;
         case 'delete':
-                $id = $_POST['id'];
+            session_start(); // Inicia a sessão para armazenar a mensagem
 
-                $resultado = $cadastrarController->deletarUsuario($id);
+            $id = $_POST['id'];
+            
+            // Chama a função para deletar o usuário
+            $resultado = $cadastrarController->deletarUsuario($id);
+            
+            // Verifica se a exclusão foi bem-sucedida
+            if ($resultado) {
+                // Se a exclusão foi bem-sucedida, redireciona para a página de usuários
+                header('Location: ../view/pages/usuarios.php');
+                exit; // Certifique-se de que o código não continuará executando após o redirecionamento
+            } else {
+                // Caso a exclusão falhe, armazenamos a mensagem de erro na sessão
+                $_SESSION['erro'] = 'Este produto está vinculado a um pedido e não pode ser excluído!';
+                
+                // Redireciona para a página de usuários
+                header('Location: ../view/pages/usuarios.php');
+                exit; // Garante que o script pare aqui
+            }
 
-                if($resultado){
-                    header('Location: ../view/pages/usuarios.php');
-                   
-                }else{
-                    header('Location: ../view/pages/usuarios.php');
-                }
-
-                break;
         default:
             echo 'Não encontrei nada';
             break;

@@ -33,18 +33,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             break;
         case 'delete':
-                $id = $_POST['id'];
-                var_dump($id);
-                $resultado = $categoriaController->deletarCategoria($id);
+            $id = $_POST['id'];
+            
+            // Chama a função para deletar o usuário
+            $resultado = $categoriaController->deletarCategoria($id);
+            
+            // Verifica se a exclusão foi bem-sucedida
+            if ($resultado) {
+                // Se a exclusão foi bem-sucedida, redireciona para a página de usuários
+                header('Location: ../view/pages/categorias.php');
+                exit; // Certifique-se de que o código não continuará executando após o redirecionamento
+            } else {
+                // Caso a exclusão falhe, armazenamos a mensagem de erro na sessão
+                $_SESSION['erro'] = 'Este produto está vinculado a um pedido e não pode ser excluído!';
                 
-
-                if($resultado){
-                    header('Location: ../view/pages/categorias.php');
-                }else{
-                    echo"não foi";
-                }
-
-                break;
+                // Redireciona para a página de usuários
+                header('Location: ../view/pages/categorias.php');
+                exit; // Garante que o script pare aqui
+            }
         default:
             echo 'Não encontrei nada';
             break;

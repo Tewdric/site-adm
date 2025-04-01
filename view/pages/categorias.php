@@ -6,6 +6,16 @@ require_once "./../../controller/categoriaController.php";
 $categoriaController = new CategoriaController();
 $categoria = $categoriaController->listarCategorias();
 
+session_start(); // Inicia a sessão para acessar as mensagens
+
+// Verifica se a mensagem de erro está na sessão
+if (isset($_SESSION['erro'])) {
+    // Exibe o alerta em JavaScript
+    echo "<script>alert('" . $_SESSION['erro'] . "');</script>";
+    
+    // Apaga a mensagem de erro após exibi-la para evitar mostrar novamente em futuros carregamentos
+    unset($_SESSION['erro']);
+}
 
 ?>
 

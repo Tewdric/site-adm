@@ -200,6 +200,7 @@ async function editarArtigo(id, texto, categoriaId, autorId) {
 
             dialog.showModal();
             btnClose.textContent = 'X';
+            btnClose.style.color = 'red';
             btnClose.addEventListener('click', () => {
                 dialog.close();
             });

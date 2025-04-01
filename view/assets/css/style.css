@@ -72,7 +72,8 @@ dialog{
         position: absolute;
         right: 1rem;
         top: 1rem;
-        border: none;
+        border: 1px solid;
+        color: red;
         background-color: transparent;
         cursor: pointer;
     }
