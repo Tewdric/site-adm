@@ -35,9 +35,9 @@ function criarUsuario(){
     dialog.innerHTML = `<form method="POST" action="../../router/cadastroRouter.php?acao=create">
                                    
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" value="">
+        <input type="text" name="nome" value="" required>
         <label for="email">Email:</label>
-        <input type="text" name="email" value="">
+        <input type="text" name="email" value="" required>
         <button type="submit">Salvar</button>
     </form>`
     document.body.appendChild(dialog)
@@ -63,7 +63,7 @@ function criarCategoria(){
     dialog.innerHTML = `<form method="POST" action="../../router/categoriaRouter.php?acao=create">
                                    
         <label for="nome">Categoria:</label>
-        <input type="text" name="categoria" value="">
+        <input type="text" name="categoria" value=""required>
         <button type="submit">Salvar</button>
     </form>`
     document.body.appendChild(dialog)
@@ -91,11 +91,11 @@ function editarUsuario(id, nome, email) {
             dialog.innerHTML = `<form method="POST" action="../../router/cadastroRouter.php?acao=update">
                                    
                                     <label for="id">ID:</label>
-                                    <input type="text" name="id" value="${id}" disabled>
+                                    <input type="text" name="id" value="${id}" disabled required>
                                     <label for="nome">Nome:</label>
-                                    <input type="text" name="nome" value="${nome}">
+                                    <input type="text" name="nome" value="${nome}"required>
                                     <label for="email">Email:</label>
-                                    <input type="text" name="email" value="${email}">
+                                    <input type="text" name="email" value="${email}"required>
                                     <button type="submit">Salvar</button>
                                 </form>`
             document.body.appendChild(dialog)
@@ -125,9 +125,9 @@ function editarCategoria(id, nome ) {
         case 'categoria':
             dialog.innerHTML = `<form method="POST" action="../../router/categoriaRouter.php?acao=update">
                                     <label for="id">Id:</label>
-                                    <input type="text" name="id" value="${id}" disabled>
-                                    <label for="categoria">Categoria:</label>
-                                    <input type="text" name="categoria" value="${nome}">
+                                    <input type="text" name="id" value="${id}" disabled required>
+                                    <label for="categoria">Categoria:</label> 
+                                    <input type="text" name="categoria" value="${nome}" required>
                                     <button type="submit">Salvar</button>
                                 </form>`
             document.body.appendChild(dialog)
@@ -175,7 +175,7 @@ async function editarArtigo(id, texto, categoriaId, autorId) {
             dialog.innerHTML = `
                 <form method="POST" action="../../router/artigoRouter.php?acao=update">
                     <label for="id">Id:</label>
-                    <input type="block" name="id" value="${id}" readonly disabled>
+                    <input type="block" name="id" value="${id}" readonly disabled required>
 
                     <label for="texto">Texto:</label>
                     
@@ -241,7 +241,7 @@ async function cadastrarArtigo(categoriaId, autorId) {
                 <form method="POST" action="../../router/artigoRouter.php?acao=create">
 
                     <label for="texto">Texto:</label>
-                    <input type="text" name="texto" value="" placeholder="Digite seu texto!">
+                    <input type="text" name="texto" value="" placeholder="Digite seu texto!" required>
 
                     <label for="categoria">Categoria:</label>
                     <select name="categoria">${categoriasOptions}</select>
